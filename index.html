@@ -4,11 +4,62 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>AngularJs-APP</title>
-	<link rel="stylesheet" href="">
-</head>
-<body>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
 	<script src="./lib/angular.min.js"></script>
 	<script src="app.js"></script>
-	<p>{{"Hello" + " App"}}</p>
+</head>
+<body>
+	
+	<div>
+		<p>{{"Hello" + " App"}}</p>
+	</div>
+	
+	<!-- ************ -->
+	<!-- Expressions -->
+	<!-- ************ -->
+
+	<!-- ng-controller Directive utilizada para se declarar um controller no DOM -->
+	<div ng-controller="MainController as main">
+		
+		<h1>{{main.products[0].name}}</h1>
+		<h2>R${{main.products[0].price}}</h2>
+		<p>{{main.products[0].description}}</p>
+
+		<!-- Outro tipo de Expression, utilizada para exibir ou nao o botao -->
+		<button class="btn btn-lg btn-primary" ng-show="main.product[0].canPurchase">Add to Cart</button> 
+	
+		<hr/>
+		
+		<!-- ng-repeat Directive para interar sobre elementos de um array -->
+		<div ng-repeat="product in main.products">
+			<h1>{{product.name}}</h1>
+			<h2>{{product.price | currency:"R$"}}</h2>
+			<p>{{product.description}}</p>
+			<!-- ng-src Directive para inserir imagens no html -->
+			<img ng-src="{{product.images[0].thumb}}" />
+			<!-- ng-show Directive utilizada para exibir elementos no html - condicao booleana -->
+			<button class="btn btn-lg btn-primary" ng-show="product.canPurchase">Add to Cart</button>
+			<hr/>
+		</div>
+	</div>
+
+	<div ng-controller="MainControllerGallery as mainGallery"> 
+		<p>{{mainGallery.imageGallery.name}}</p>
+		<ul class="img-galley-thumb">
+			<li ng-repeat="item in mainGallery.imageGallery.images">
+				<spam>{{$index}}</spam>
+				<img ng-src="{{item.thumb}}" alt="{{item.alt}}" />
+			</li>
+		</ul>
+
+		<ul class="img-galley-full">
+			<li ng-repeat="item in mainGallery.imageGallery.images">
+				<spam>{{$index}}</spam>
+				<img ng-src="{{item.full}}" alt="{{item.alt}}" />
+			</li>
+		</ul>
+	</div>
+
 </body>
 </html>

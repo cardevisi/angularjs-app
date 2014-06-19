@@ -1,0 +1,20 @@
+body {
+	color: #000;
+	padding: 20px;
+}
+
+.img-galley-full{
+	display: none;
+	list-style: none;
+}
+
+.img-galley-thumb {
+	list-style: none;
+}
+
+.img-galley-full li, .img-galley-thumb li {
+	float: left;
+	padding: 20px;
+	border: 1px solid #000;
+	margin: 5px;
+}
