@@ -10,15 +10,34 @@
 	<script src="app.js"></script>
 </head>
 <body>
+
+	<section  class="panel panel-default" ng-controller="PanelController as panel">
+		<!-- ***************** -->
+		<!-- Custom directives and ng-include -->
+		<!-- ***************** -->
+		<div class="panel-body" ng-include="'menu_include.html'"></div>
+		
+		<!-- ***************** Product title as a html element -->
+		<product-title></product-title>
+		<!-- ***************** -->
+		
+		<!-- ***************** Product title as a html attribute -->
+		<div product-title></div>
+		<!-- ***************** -->
+	</section>
+
+	<section class="panel panel-default">
+		<product-tabs></product-tabs>
+	</section>
 	
-	<div  class="panel panel-default" ng-controller="PanelController as panel">
+	<section class="panel panel-default" ng-controller="PanelController as panel">
 		<div class="panel-body">
 			<h1>{{"Hello" + " Angular App"}}</h1>
 		</div>
-	</div>
+	</section>
 	
 	<!-- ng-controller Directive utilizada para se declarar um controller no DOM -->
-	<div  class="panel panel-default" ng-controller="PanelController as panel">
+	<section  class="panel panel-default" ng-controller="PanelController as panel">
 		<div class="panel-body">
 			<div ng-controller="MainController as main">
 				
@@ -44,9 +63,9 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</section>
 
-	<div  class="panel panel-default" ng-controller="PanelController as panel">
+	<section  class="panel panel-default" ng-controller="PanelController as panel">
 		<div class="panel-body">
 			<div ng-controller="MainControllerGallery as mainGallery"> 
 				<p>{{mainGallery.imageGallery.name}}</p>
@@ -65,9 +84,9 @@
 				</ul>
 			</div>
 		</div>
-	</div>
+	</section>
 	
-	<div  class="panel panel-default" ng-controller="PanelController as panel">
+	<section  class="panel panel-default" ng-controller="PanelController as panel">
 		<div class="panel-body">
 			<ul class="nav nav-tabs" ng-init="panel.tab">
 			  <li ng-class="{active:panel.isSelected(1)}"><a href ng-click="panel.setTab(1)">Tab - 1</a></li>
@@ -89,9 +108,9 @@
 				<p>{{panel.tab + ") " + panel.productPanels[panel.tab-1].description}}</p>
 			</div>
 		</div>
-	</div>
+	</secton>
 
-	<div  class="panel panel-default" ng-controller="PanelController as panel">
+	<section  class="panel panel-default" ng-controller="PanelController as panel">
 		<div class="panel-body">
 			
 			<ul class="list-unstyled">
@@ -134,7 +153,7 @@
 			</form>
 
 		</div>
-	</div>
+	</section>
 
 </body>
 </html>
