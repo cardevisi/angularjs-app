@@ -1,5 +1,5 @@
 (function(){
-	var app = angular.module('main', []);	
+	var app = angular.module('main', ['store-products']);	
 	
 	app.controller('MainController', function(){
 		this.products = gems;
@@ -30,42 +30,6 @@
 			this.review = {};
 		};
 	});
-
-	//*********************
-	// Custom Directives ...
-	//*********************
-	app.directive('productTitle', function() {
-		return {
-			restrict:'E',
-			templateUrl:'product-title.html'
-		};
-	});
-
-	app.directive('productTitle', function() {
-		return {
-			restrict:'A',
-			templateUrl:'product-title.html'
-		};
-	});
-
-	app.directive('productTabs', function(){
-		return {
-			restrict:'E',
-			templateUrl:'product-tabs.html',
-			controller: function() {
-				this.tab = 3;
-				this.setTab = function(selectedTab) {
-		    		this.tab = selectedTab;
-		    	};
-				this.isSet = function(checkTab) {
-					return this.tab === checkTab;
-				};
-			},
-			controllerAs:'tab'
-		};
-	});
-
-	//*********************
 
 	var gems = [
 		{
