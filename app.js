@@ -1,5 +1,5 @@
 (function(){
-	var app = angular.module('main', ['store-products']);	
+	var app = angular.module('main', ['store-products', 'services']);	
 	
 	app.controller('MainController', function(){
 		this.products = gems;

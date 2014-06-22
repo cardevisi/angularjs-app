@@ -13,6 +13,11 @@
 	<!-- Dependencies -->
 	<!-- ************** -->
 	<script src="product.js"></script>
+
+	<!-- ************** -->
+	<!-- Services -->
+	<!-- ************** -->
+	<script src="services.js"></script>
 </head>
 <body>
 
@@ -157,6 +162,20 @@
 				<div>Debug reviewForm is {{reviewForm.$valid}}</div>
 			</form>
 
+		</div>
+	</section>
+
+	<section  class="panel panel-default" ng-controller="GetProducts as store">
+		<div class="panel-body">
+		<div ng-repeat="product in store.products">
+			<ul class="list-unstyled">
+				<li>{{product.name}}</li>
+				<li>{{product.shine}}</li>
+				<li>{{product.description}}</li>
+				<li ng-repeat="item in product.images">
+					<img ng-if="!item.image" ng-src="{{item}}" alt="{{product.name}}" />
+				</li>
+			</ul>
 		</div>
 	</section>
 
