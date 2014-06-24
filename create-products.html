@@ -1,0 +1,29 @@
+<section  class="panel panel-default">
+	<div class="panel-body">
+			
+			<form name="reviewForm" ng-submit="$valid" novalidate>
+				<div class="form-group">
+					<div class="form-group">
+						<label for="stars">Stars</label>
+						<select class="form-control input-lg" name="stars" ng-model="stars" ng-options="stars for stars in [1,2,3,4,5]" title="Stars" required>
+							<option value="">Rate the Product</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="body">Message</label>
+						<textarea class="form-control" rows="3" placeholder="message" name="body" ng-model="body" required></textarea>
+					</div>
+					<div class="form-group">
+						<label for="author">Author</label>
+						<input class="form-control input-lg" placeholder="author" name="author" type="email" ng-model="author" required>
+					</div>
+					<div class="form-group">
+				    	<input class="btn btn-default" type="submit" name="submit" value="Submit">
+				  	</div>
+				</div>
+				<div>Debug reviewForm is {{reviewForm.$valid}}</div>
+			</form>
+
+		</div>
+	</div>
+</section>

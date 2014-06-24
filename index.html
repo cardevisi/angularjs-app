@@ -6,178 +6,40 @@
 	<title>AngularJs-APP</title>
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+	<nav class="navbar navbar-default" role="navigation">
+	  	<div class="container-fluid">
+		    <div class="navbar-header">
+			    <div class="collapse navbar-collapse">
+			      	<ul class="nav navbar-nav">
+			        	<li class="active"><a href="/angularjs_app/home/">HOME</a></li>
+			        	<li><a href="/angularjs_app/login/">LOGIN</a></li>
+			        	<li><a href="/angularjs_app/create-products/">PRODUCT</a></li>
+			        </ul>
+			    </div>
+		  	</div>
+	  	</div>
+	</nav>
+
+	<div ng-view></div>
+
+	<script data-main="main" src="./lib/require.js"></script>
 	<script src="./lib/angular.min.js"></script>
+	<script src="./lib/angular-route.js"></script>
 	<script src="app.js"></script>
-	
+	<script src="config-routes.js"></script>
 	<!-- ************** -->
 	<!-- Dependencies -->
 	<!-- ************** -->
 	<script src="product.js"></script>
-
+	<script src="create-products.js"></script>
 	<!-- ************** -->
 	<!-- Services -->
 	<!-- ************** -->
 	<script src="services.js"></script>
-</head>
-<body>
-
-	<section  class="panel panel-default" ng-controller="PanelController as panel">
-		<!-- ***************** -->
-		<!-- Custom directives and ng-include -->
-		<!-- ***************** -->
-		<div class="panel-body" ng-include="'menu_include.html'"></div>
-		
-		<!-- ***************** Product title as a html element -->
-		<product-title></product-title>
-		<!-- ***************** -->
-		
-		<!-- ***************** Product title as a html attribute -->
-		<div product-title></div>
-		<!-- ***************** -->
-	</section>
-
-	<section class="panel panel-default">
-		<product-tabs></product-tabs>
-	</section>
-	
-	<section class="panel panel-default" ng-controller="PanelController as panel">
-		<div class="panel-body">
-			<h1>{{"Hello" + " Angular App"}}</h1>
-		</div>
-	</section>
-	
-	<!-- ng-controller Directive utilizada para se declarar um controller no DOM -->
-	<section  class="panel panel-default" ng-controller="PanelController as panel">
-		<div class="panel-body">
-			<div ng-controller="MainController as main">
-				
-				<h1>{{main.products[0].name}}</h1>
-				<h2>R${{main.products[0].price}}</h2>
-				<p>{{main.products[0].description}}</p>
-
-				<!-- Outro tipo de Expression, utilizada para exibir ou nao o botao -->
-				<button class="btn btn-lg btn-primary" ng-show="main.product[0].canPurchase">Add to Cart</button> 
-			
-				<hr/>
-				
-				<!-- ng-repeat Directive para interar sobre elementos de um array -->
-				<div ng-repeat="product in main.products">
-					<h1>{{product.name}}</h1>
-					<h2>{{product.price | currency:"R$"}}</h2>
-					<p>{{product.description}}</p>
-					<!-- ng-src Directive para inserir imagens no html -->
-					<img ng-src="{{product.images[0].thumb}}" />
-					<!-- ng-show Directive utilizada para exibir elementos no html - condicao booleana -->
-					<button class="btn btn-lg btn-primary" ng-show="product.canPurchase">Add to Cart</button>
-					<hr/>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section  class="panel panel-default" ng-controller="PanelController as panel">
-		<div class="panel-body">
-			<div ng-controller="MainControllerGallery as mainGallery"> 
-				<p>{{mainGallery.imageGallery.name}}</p>
-				<ul class="list-unstyled img-galley-thumb">
-					<li ng-repeat="item in mainGallery.imageGallery.images">
-						<!-- <spam>{{$index}}</spam> -->
-						<img ng-src="{{item.thumb}}" alt="{{item.alt}}" />
-					</li>
-				</ul>
-
-				<ul class="list-unstyled img-galley-full">
-					<li ng-repeat="item in mainGallery.imageGallery.images">
-						<!-- <spam>{{$index}}</spam> -->
-						<img ng-src="{{item.full}}" alt="{{item.alt}}" />
-					</li>
-				</ul>
-			</div>
-		</div>
-	</section>
-	
-	<section  class="panel panel-default" ng-controller="PanelController as panel">
-		<div class="panel-body">
-			<ul class="nav nav-tabs" ng-init="panel.tab">
-			  <li ng-class="{active:panel.isSelected(1)}"><a href ng-click="panel.setTab(1)">Tab - 1</a></li>
-			  <li ng-class="{active:panel.isSelected(2)}"><a href ng-click="panel.setTab(2)">Tab - 2</a></li>
-			  <li ng-class="{active:panel.isSelected(3)}"><a href ng-click="panel.setTab(3)">Tab - 3</a></li>
-			  <li ng-class="{active:panel.isSelected(4)}"><a href ng-click="panel.setTab(4)">Tab - 4</a></li>
-			</ul>
-
-			<div class="panel" ng-show="panel.isSelected(1)">
-				<p>{{panel.tab + ") " + panel.productPanels[panel.tab-1].description}}</p>
-			</div>
-			<div class="panel" ng-show="panel.isSelected(2)">
-				<p>{{panel.tab + ") " + panel.productPanels[panel.tab-1].description}}</p>
-			</div>
-			<div class="panel" ng-show="panel.isSelected(3)">
-				<p>{{panel.tab + ") " + panel.productPanels[panel.tab-1].description}}</p>
-			</div>
-			<div class="panel" ng-show="panel.isSelected(4)">
-				<p>{{panel.tab + ") " + panel.productPanels[panel.tab-1].description}}</p>
-			</div>
-		</div>
-	</secton>
-
-	<section  class="panel panel-default" ng-controller="PanelController as panel">
-		<div class="panel-body">
-			
-			<ul class="list-unstyled">
-              <h4>Product Review</h4>
-              <li ng-repeat="review in panel.productReviews">
-                <blockquote>
-                  <p><strong>{{review.stars}} Stars</strong></p>
-                  <p>{{review.body}}</p>
-                  <p><cite>by: {{review.author}}</cite>{{review.createdOn | date:'MM/dd/yyyy @ h:mma'}}</p>
-                </blockquote>
-              </li>
-            </ul>
-
-			<form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(panel.panels)" novalidate>
-				<div class="form-group">
-					<blockquote>
-						<p><b>Stars:</b>{{reviewCtrl.review.stars}}</p>
-						<p><b>Message</b>{{reviewCtrl.review.body}}</p>
-						<p><cite>by: {{reviewCtrl.review.author}}</cite></p>
-					</blockquote>
-					<div class="form-group">
-						<label for="stars">Stars</label>
-						<select class="form-control input-lg" name="stars" ng-model="reviewCtrl.review.stars" ng-options="stars for stars in [1,2,3,4,5]" title="Stars" required>
-							<option value="">Rate the Product</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<label for="body">Message</label>
-						<textarea class="form-control" rows="3" placeholder="message" name="body" ng-model="reviewCtrl.review.body" required></textarea>
-					</div>
-					<div class="form-group">
-						<label for="author">Author</label>
-						<input class="form-control input-lg" placeholder="author" name="author" type="email" ng-model="reviewCtrl.review.author" required>
-					</div>
-					<div class="form-group">
-				    	<input class="btn btn-default" type="submit" name="submit" value="Submit">
-				  	</div>
-				</div>
-				<div>Debug reviewForm is {{reviewForm.$valid}}</div>
-			</form>
-
-		</div>
-	</section>
-
-	<section  class="panel panel-default" ng-controller="GetProducts as store">
-		<div class="panel-body">
-		<div ng-repeat="product in store.products">
-			<ul class="list-unstyled">
-				<li>{{product.name}}</li>
-				<li>{{product.shine}}</li>
-				<li>{{product.description}}</li>
-				<li ng-repeat="item in product.images">
-					<img ng-if="!item.image" ng-src="{{item}}" alt="{{product.name}}" />
-				</li>
-			</ul>
-		</div>
-	</section>
+	<script src="login.js"></script>
 
 </body>
 </html>

@@ -9,8 +9,8 @@
     "faces": 14,
     "images": [
       "http://placehold.it/100x50",
-      "./images/gem-05.gif",
-      "images/gem-09.gif"
+      "http://placehold.it/100x50",
+      "http://placehold.it/100x50"
     ],
     "reviews": []
   },
@@ -24,8 +24,8 @@
     "faces": 12,
     "images": [
       "./images/gallery-tiger-thumb.jpg",
-      "images/gem-03.gif",
-      "images/gem-04.gif"
+      "./images/gallery-tiger-thumb.jpg",
+      "./images/gallery-tiger-thumb.jpg"
     ],
     "reviews": []
   },
@@ -39,8 +39,8 @@
     "faces": 6,
     "images": [
       "./images/gallery-tiger-thumb.jpg",
-      "images/gem-07.gif",
-      "images/gem-08.gif"
+      "./images/gallery-tiger-thumb.jpg",
+      "./images/gallery-tiger-thumb.jpg"
     ],
     "reviews": []
   }

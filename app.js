@@ -1,15 +1,18 @@
 (function(){
-	var app = angular.module('main', ['store-products', 'services']);	
-	
-	app.controller('MainController', function(){
+	'use strict';
+
+	var app = angular.module('main', ['config-routes', 'store-products', 'services', 'create-products', 'user-login']);
+
+
+	app.controller('MainController', function() {
 		this.products = gems;
 	});
 
-	app.controller('MainControllerGallery', function(){
+	app.controller('MainControllerGallery', function() {
 		this.imageGallery = gallerys;
 	});
 
-	app.controller('PanelController', function(){
+	app.controller('PanelController', function() {
 		this.panels = panels;
 		this.productPanels = panels.products;
 		this.productReviews = panels.reviews;
@@ -22,7 +25,7 @@
 		};
 	});
 
-	app.controller('ReviewController', function(){
+	app.controller('ReviewController', function() {
 		this.review = {};
 		this.addReview = function(product) {
 			this.review.createdOn = Date.now();
