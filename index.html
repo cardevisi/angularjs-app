@@ -25,21 +25,15 @@
 
 	<div ng-view></div>
 
-	<script data-main="main" src="./lib/require.js"></script>
-	<script src="./lib/angular.min.js"></script>
-	<script src="./lib/angular-route.js"></script>
+	<!-- <script data-main="main" src="libs/require.js"></script> -->
+	<script src="libs/angular.min.js"></script>
+	<script src="libs/angular-route.js"></script>
 	<script src="app.js"></script>
-	<script src="config-routes.js"></script>
-	<!-- ************** -->
-	<!-- Dependencies -->
-	<!-- ************** -->
-	<script src="product.js"></script>
-	<script src="create-products.js"></script>
-	<!-- ************** -->
-	<!-- Services -->
-	<!-- ************** -->
-	<script src="services.js"></script>
-	<script src="login.js"></script>
+	<script src="routes/config-routes.js"></script>
+	<script src="controllers/product.js"></script>
+	<script src="controllers/create-products.js"></script>
+	<script src="controllers/login.js"></script>
+	<script src="services/services.js"></script>
 
 </body>
 </html>
